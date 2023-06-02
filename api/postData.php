@@ -27,8 +27,6 @@ $date = $_POST['date'];
 $text = $_POST['text'];
 $checkbox = checkboxFunc($_POST['checkbox']);
 
-// print_r($_POST['checkbox']);
-echo "\n";
 
 $sql = "INSERT INTO `PROTOCOL_TABLE`( `Номер протокола`, `Дата выдачи`, `Ответственный сотрудник`, `Признак соответствия значений в протоколе нормам`) VALUES ('$number','$date','$text','$checkbox')";
 

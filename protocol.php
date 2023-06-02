@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <!-- <script src="jquery-3.6.4.min.js"></script> -->
+    <script src="jquery-3.6.4.min.js"></script>
     <title>PROTOCOL_TABLE</title>
 </head>
 <body>
@@ -46,6 +46,7 @@ if ($db -> real_connect('localhost','root','','employees')):
         </tr>
         <?php 
         endforeach;
+        endif;
         ?>
         <!-- <tr class="dbOutput">
             <td class="N">1</td>
@@ -58,17 +59,13 @@ if ($db -> real_connect('localhost','root','','employees')):
     </table>
 
 
-</div>
-
-<?php 
-endif; 
-?>    
+</div> 
 
     <div class="protocolForm">
 
         <div class="formTitle">Форма</div>
 
-        <form action="./api/postData.php" method="post" class="form" id="form" enctype="multipart/form-data">
+        <form action="./api/postData.php" method="post" class="form" id="addForm" enctype="multipart/form-data">
             
             <span>Номер протокола</span>
             <input type="number" name="number" id="">
@@ -86,6 +83,6 @@ endif;
     </div>
 
 
-    <!-- <script src="./ajax.js"></script> -->
+    <script src="./ajax.js"></script>
 </body>
 </html>

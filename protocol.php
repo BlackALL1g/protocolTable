@@ -21,66 +21,69 @@ if ($db -> real_connect('localhost','root','','employees')):
 
 <div class="dbContainer">
 
-    <div class="protocolTitle">Таблица с данными</div>
+<div class="protocolTitle">Таблица с данными</div>
 
-    <table class="protocolTable">
+<table class="protocolTable">
 
-        <tr class="dbFacade">
-            <th>№ п\п</th>
-            <th>Номер протокола</th>
-            <th>Дата выдачи</th>
-            <th>Ответственный (ФИО)</th>
-            <th>Соответствие («да», «нет»)</th>
-        </tr>
-         
-        <?php 
-        foreach ($arr as $key => list($id, $number, $date, $text, $checkbox)):
-        ?>
+    <tr class="dbFacade">
+        <th>№ п\п</th>
+        <th>Номер протокола</th>
+        <th>Дата выдачи</th>
+        <th>Ответственный (ФИО)</th>
+        <th>Соответствие («да», «нет»)</th>
+    </tr>
+     
+    <?php 
+    foreach ($arr as $key => list($id, $number, $date, $text, $checkbox)):
+    ?>
 
-        <tr class="dbOutput">
-            <td class="N"><?php echo $id; ?></td>
-            <td class="protocolNumber"><?php echo $number; ?></td>
-            <td class="releaseDate"><?php echo $date; ?></td>
-            <td class="executor"><?php echo $text; ?></td>
-            <td class="conformity"><?php echo $checkbox; ?></td>
-        </tr>
-        <?php 
-        endforeach;
-        endif;
-        ?>
-        <!-- <tr class="dbOutput">
-            <td class="N">1</td>
-            <td class="protocolNumber">32523562</td>
-            <td class="releaseDate">25.04.19</td>
-            <td class="executor">Иванов</td>
-            <td class="conformity">Да</td>
-        </tr> -->
+    <tr class="dbOutput">
+        <td ><?php echo $id; ?></td>
+        <td><?php echo $number; ?></td>
+        <td><?php echo $date; ?></td>
+        <td><?php echo $text; ?></td>
+        <td><?php echo $checkbox; ?></td>
+    </tr>
+    
+    <?php 
+    endforeach;
+    endif;
+    ?>
 
-    </table>
+    <!-- <tr class="dbOutput">
+        <td class="N">1</td>
+        <td class="protocolNumber">32523562</td>
+        <td class="releaseDate">25.04.19</td>
+        <td class="executor">Иванов</td>
+        <td class="conformity">Да</td>
+    </tr> -->
+
+</table>
 
 
 </div> 
 
-    <div class="protocolForm">
+<div class="protocolForm">
 
-        <div class="formTitle">Форма</div>
+    <div class="formTitle">Форма</div>
 
-        <form action="./api/postData.php" method="post" class="form" id="addForm" enctype="multipart/form-data">
-            
-            <span>Номер протокола</span>
-            <input type="number" name="number" id="">
-            <span>Дата выдачи</span>
-            <input type="date" name="date" id="">
-            <span>Ответственный (ФИО)</span>
-            <input type="text" name="text" id="">
-            <span>Соответствие («да», «нет»)</span>
-            <input type="checkbox" name="checkbox" id="" class="checkbox">
+    <form action="./api/postData.php" method="post" class="form" id="addForm" enctype="multipart/form-data">
+        
+        <span>Номер протокола</span>
+        <input type="number" name="number" id="">
+        <span>Дата выдачи</span>
+        <input type="date" name="date" id="">
+        <span>Ответственный (ФИО)</span>
+        <input type="text" name="text" id="">
+        <span>Соответствие («да», «нет»)</span>
+        <input type="checkbox" name="checkbox" id="" class="checkbox">
 
 
-            <button type="submit" class="btn">Submit</button>
-            
-        </form>
-    </div>
+        <button type="submit" class="btn">Submit</button>
+        
+    </form>
+    
+</div>
 
 
     <script src="./ajax.js"></script>

@@ -41,6 +41,11 @@ if (!$db -> real_connect($cfg['hostname'], $cfg['username'],$cfg['password'], $c
     exit (1);
 }
 
+
+//db check if the protocol number exists
+
+
+
 // first  approach
 // if (mysqli_query($db, $sql) !== false) {
 //     echo 'ok';

@@ -60,6 +60,7 @@ if ($db -> real_connect('localhost','root','','employees')):
 
 </table>
 
+<a href="#addForm"><button class="btn">Добавить протокол</button></a>
 
 </div> 
 
@@ -70,19 +71,19 @@ if ($db -> real_connect('localhost','root','','employees')):
     <form action="./api/postData.php" method="post" class="form" id="addForm" enctype="multipart/form-data">
         
         <span>Номер протокола</span>
-        <input type="number" name="number" id="">
+        <input type="number" name="number" id="" required>
         <span>Дата выдачи</span>
-        <input type="date" name="date" id="">
+        <input type="date" name="date" id="" required>
         <span>Ответственный (ФИО)</span>
-        <input type="text" name="text" id="">
+        <input type="text" name="text" id="" required>
         <span>Соответствие («да», «нет»)</span>
         <input type="checkbox" name="checkbox" id="" class="checkbox">
 
 
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn">Сохранить</button>
         
     </form>
-    
+
 </div>
 
 

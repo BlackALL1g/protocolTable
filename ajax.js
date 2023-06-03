@@ -20,18 +20,18 @@ form.onsubmit = (ev) => {
         }
     })
 
-    //  switcher 1  (comment switcher if u add use script with getData.php) <
+    //  switcher 1  (comment this highlighted snippet and uncomment switcher 2 if u change the script with getData.php) <
 
     .then(json => {
         console.log("submitAjax success", json);
-        alert('ready!!! The page has been updated!');
+        alert('Готово!!! Данные успешно добавлены!');
     })
 
     // >
 
 
 
-    // // Part for adding without reload (getData.php)  <
+    // // switcher 2 .  Part for adding without reload (getData.php)  <
     
     // .then(json => {
     //     console.log("submitAjax success", json);
@@ -77,7 +77,7 @@ form.onsubmit = (ev) => {
 
     .catch(error => {
         console.log('submitAjax failure', error);
-        alert('something went wrong, not added!');
+        alert('Ошибка! Данные не добавлены!');
     });
 };
 

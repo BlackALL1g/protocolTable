@@ -10,10 +10,11 @@
 
 body{
     background-color: wheat;
-    display: flex;
+
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh; */
 }
 
 
@@ -21,7 +22,7 @@ body{
     border: 1px solid #000;
     min-width: 1000px;
     min-height: 400px;
-    margin-right: 200px;
+    margin: 200px 500px 500px;
     
 }
 
@@ -48,6 +49,9 @@ table, th, td {
     width: 400px;
     min-height: 300px;
     padding: 20px;
+
+    margin: 900px 700px 250px;
+
 }
 
 .formTitle{
@@ -69,8 +73,8 @@ table, th, td {
 }
 
 .btn{
-    width: 120px;
-    min-height: 60px;
+    width: 150px;
+    min-height: 70px;
     background-color:rgb(31, 148, 31);
     justify-self: right;
     font-size: 25px;

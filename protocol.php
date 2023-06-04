@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style link -->
     <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.6.4.min.js"></script>
+    <!-- ajax link -->
+    <!-- <script src="jquery-3.6.4.min.js"></script> -->
     <title>PROTOCOL_TABLE</title>
 </head>
 <body>
@@ -19,7 +21,7 @@ if ($db -> real_connect('localhost','root','','employees')):
     if (!$arr) echo 'what?!';
     else $arr = $arr -> fetch_all();?>
 
-<div class="dbContainer">
+<div class="dbContainer" id="dbContainer">
 
 <div class="protocolTitle">Таблица с данными</div>
 
@@ -32,31 +34,27 @@ if ($db -> real_connect('localhost','root','','employees')):
         <th>Ответственный (ФИО)</th>
         <th>Соответствие («да», «нет»)</th>
     </tr>
-     
-    <?php 
-    foreach ($arr as $key => list($id, $number, $date, $text, $checkbox)):
-    ?>
-
-    <tr class="dbOutput">
-        <td ><?php echo $id; ?></td>
-        <td><?php echo $number; ?></td>
-        <td><?php echo $date; ?></td>
-        <td><?php echo $text; ?></td>
-        <td><?php echo $checkbox; ?></td>
-    </tr>
     
-    <?php 
-    endforeach;
-    endif;
-    ?>
+    <!-- <div class="wrapper"> -->
+        <?php 
+        foreach ($arr as $key => list($id, $number, $date, $text, $checkbox)):
+        ?>
 
-    <!-- <tr class="dbOutput">
-        <td class="N">1</td>
-        <td class="protocolNumber">32523562</td>
-        <td class="releaseDate">25.04.19</td>
-        <td class="executor">Иванов</td>
-        <td class="conformity">Да</td>
-    </tr> -->
+        <tr class="dbOutput">
+            <td ><?php echo $id; ?></td>
+            <td><?php echo $number; ?></td>
+            <td><?php echo $date; ?></td>
+            <td><?php echo $text; ?></td>
+            <td><?php echo $checkbox; ?></td>
+        </tr>
+        
+        <?php 
+        endforeach;
+        endif;
+        ?>
+
+    <!-- </div> -->
+
 
 </table>
 
@@ -81,12 +79,12 @@ if ($db -> real_connect('localhost','root','','employees')):
 
 
         <button type="submit" class="btn">Сохранить</button>
-        
+
     </form>
 
 </div>
 
-
-    <script src="./ajax.js"></script>
+    <!-- script link -->
+    <script src="./script.js"></script>
 </body>
 </html>

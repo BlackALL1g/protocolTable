@@ -42,8 +42,29 @@ if (!$db -> real_connect($cfg['hostname'], $cfg['username'],$cfg['password'], $c
 }
 
 
-//db check if the protocol number exists
+// db check if the protocol number exists
 
+// $check_number_query = "SELECT COUNT(*) FROM PROTOCOL_TABLE WHERE `Номер протокола`='$number'";
+// $result = $db -> query($check_number_query);
+
+// if ($result === false) {
+//     echo 'mysqli_query error';
+// } else {
+//     $rows = mysqli_num_rows($result);
+//     if ($rows > 0) {
+//         echo 'номер протокола уже существует!';
+//         // it has to be sth
+//         exit(2);
+//     } else {
+//         // continue with the INSERT query
+//         if ($db -> query($sql) !== false) {
+//             echo 'ok';
+//         } else {
+//             echo 'mysqli_query error';
+//             exit(3);
+//         }
+//     }
+// }
 
 
 // first  approach

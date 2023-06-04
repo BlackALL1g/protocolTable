@@ -9,7 +9,7 @@ if ($db -> connect_errno)
     die('Query error: ' . $db -> connect_error);
 
 
-$res = $db->query('SELECT * FROM hero ORDER BY id ASC');
+$res = $db->query('SELECT * FROM PROTOCOL_TABLE ORDER BY id ASC');
 
 if (!$res) {
     die('Query error: ' . $db->error);

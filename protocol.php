@@ -66,7 +66,7 @@ if ($db -> real_connect('localhost','root','','employees')):
 
     <div class="formTitle">Форма</div>
 
-    <form action="./api/postData.php" method="post" class="form" id="addForm" enctype="multipart/form-data">
+    <form method="post" class="form" id="addForm" enctype="multipart/form-data">
         
         <span>Номер протокола</span>
         <input type="number" name="number" id="" required>

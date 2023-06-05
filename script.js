@@ -23,45 +23,16 @@ form.onsubmit = (ev) => {
     })
     .then(json => {
 
-        console.log("submit success", json);
-        alert('Готово!!! Данные успешно добавлены!');
+        if (json.includes('номер протокола уже существует!')) {
+            console.log("the number is already existed in the table");
+            alert('Не добавлено ! Протокол с данным номером уже существует')
+        } else {
+            console.log("submit success", json);
+            alert('Готово!!! Данные успешно добавлены!');
+            location.reload();
+            window.location.href = '#dbContainer';
+        }
 
-        // // Fetch updated data from server and update table
-        // fetch("./api/getData.php")
-        // .then(res => res.json())
-        // .then(data => {
-        //     let rows = '';
-        //     data.forEach(record => {
-        //         rows += 
-        //                 // '<tr class="dbFacade">' 
-        //                 //     '<th> № п\п  </th>' 
-        //                 //     '<th> Номер протокола </th>' 
-        //                 //     '<th> Дата выдачи  </th>' 
-        //                 //     '<th> Ответственный (ФИО)  </th>' 
-        //                 //     '<th> Соответствие («да», «нет»)  </th>' 
-        //                 // '</tr>';
-
-        //                 '<tr class="dbOutput">' +
-        //                     '<td>' + record.id + '</td>' +
-        //                     '<td>' + record.number + '</td>' +
-        //                     '<td>' + record.date + '</td>' +
-        //                     '<td>' + record.text + '</td>' +
-        //                     '<td>' + record.checkbox + '</td>' +
-        //                 '</tr>';
-        //     });
-        //     table.innerHTML = rows;
-        //     // wrapper.innerHTML = rows;
-            
-        // })
-        // .catch(error => {
-        //     console.log("fetch error", error);
-        // });
-        
-        // or update the table data to avoid page refresh MANUALLY  
-        location.reload();
-        // 
-        window.location.href = '#dbContainer';
-        
     })
     .catch(error => {
         console.log('submit failure', error);
@@ -69,29 +40,69 @@ form.onsubmit = (ev) => {
     });
 };
 
+        // console.log("submit success", json);
+        // alert('Готово!!! Данные успешно добавлены!');
+        // location.reload();
+        // window.location.href = '#dbContainer';
+        
+        // if (condition) {
+        //     console.log("submit success", json);
+        //     alert('Готово!!! Данные успешно добавлены!');
+        //     location.reload();
+        //     window.location.href = '#dbContainer';
+        // } else {
+        //     console.log("the number is already existed in the table");
+        //     alert('Не добавлено ! Протокол с данным номером уже существует')
+        // }
 
 
 
-// const form = document.getElementById('addForm');
-// form.onsubmit = (ev) => {
-//     ev.preventDefault();
-//     const bodyData = new FormData(form);
-//     if (bodyData.get('number') === null || bodyData.get('date') === null || bodyData.get('text') === null ) {
-//         return ;
-//     }
+            // // Fetch updated data from server and update table
+            // fetch("./api/getData.php")
+            // .then(res => res.json())
+            // .then(data => {
+            //     let rows = '';
+            //     data.forEach(record => {
+            //         rows += 
+            //                 // '<tr class="dbFacade">' 
+            //                 //     '<th> № п\п  </th>' 
+            //                 //     '<th> Номер протокола </th>' 
+            //                 //     '<th> Дата выдачи  </th>' 
+            //                 //     '<th> Ответственный (ФИО)  </th>' 
+            //                 //     '<th> Соответствие («да», «нет»)  </th>' 
+            //                 // '</tr>';
 
-//     fetch("./api/postData.php", {
-//         body: bodyData,
-//         method: 'post'
+            //                 '<tr class="dbOutput">' +
+            //                     '<td>' + record.id + '</td>' +
+            //                     '<td>' + record.number + '</td>' +
+            //                     '<td>' + record.date + '</td>' +
+            //                     '<td>' + record.text + '</td>' +
+            //                     '<td>' + record.checkbox + '</td>' +
+            //                 '</tr>';
+            //     });
+            //     table.innerHTML = rows;
+            //     // wrapper.innerHTML = rows;
+                
+            // })
+            // .catch(error => {
+            //     console.log("fetch error", error);
+            // });
+
+            // or update the table data to avoid page refresh MANUALLY  
+            // location.reload();
+            // 
+            // window.location.href = '#dbContainer';
+            
 //     })
+//     .catch(error => {
+//         console.log('submit failure', error);
+//         alert('Ошибка! Данные не добавлены!');
+//     });
+// };
 
-//     .then(res => {
-//         if (res.ok) {
-//             return res.text();
-//         } else {
-//             return Error('api send not 200');
-//         }
-//     })
+
+
+
 
 //     //  switcher 1  (comment this highlighted snippet and uncomment switcher 2 if u change the script with getData.php) <
 

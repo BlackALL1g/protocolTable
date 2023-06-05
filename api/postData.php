@@ -11,13 +11,6 @@ $cfg = [
     'database' => 'employees'
 ];
 
-// function checkboxFunc ($check){
-//     if ($check == 'on') {
-//         return 'да';
-//     }
-//     return 'нет';
-// };
-
 function checkboxFunc($check){
     return ($check == 'on')?'да':'нет';
 }
@@ -28,11 +21,6 @@ $text = $_POST['text'];
 $checkbox = checkboxFunc($_POST['checkbox']);
 
 
-$sql = "INSERT INTO `PROTOCOL_TABLE`( `Номер протокола`, `Дата выдачи`, `Ответственный сотрудник`, `Признак соответствия значений в протоколе нормам`) VALUES ('$number','$date','$text','$checkbox')";
-
-// check
-print_r($sql);
-
 $db = mysqli_init();
 
 
@@ -41,29 +29,56 @@ if (!$db -> real_connect($cfg['hostname'], $cfg['username'],$cfg['password'], $c
     exit (1);
 }
 
+$sql = "INSERT INTO `PROTOCOL_TABLE`( `Номер протокола`, `Дата выдачи`, `Ответственный сотрудник`, `Признак соответствия значений в протоколе нормам`) VALUES ('$number','$date','$text','$checkbox')";
+
+// check
+echo "\n";
+print_r($sql);
+echo "\n";
+
 
 // db check if the protocol number exists
+$check_number_query = "SELECT COUNT(*) FROM PROTOCOL_TABLE WHERE `Номер протокола`='$number'";
+$result = $db -> query($check_number_query);
+$rows = mysqli_fetch_row($result);
 
-// $check_number_query = "SELECT COUNT(*) FROM PROTOCOL_TABLE WHERE `Номер протокола`='$number'";
-// $result = $db -> query($check_number_query);
 
-// if ($result === false) {
-//     echo 'mysqli_query error';
-// } else {
-//     $rows = mysqli_num_rows($result);
-//     if ($rows > 0) {
-//         echo 'номер протокола уже существует!';
-//         // it has to be sth
-//         exit(2);
-//     } else {
-//         // continue with the INSERT query
-//         if ($db -> query($sql) !== false) {
-//             echo 'ok';
-//         } else {
-//             echo 'mysqli_query error';
-//             exit(3);
-//         }
+
+echo "\n";
+print_r($check_number_query);
+echo "\n";
+print_r($result);
+echo "\n";
+print_r($rows);
+echo "\n";
+
+
+if ($rows[0] > 0) {
+    echo 'номер протокола уже существует!';
+} else {
+    // continue with the INSERT query
+    if ($db -> query($sql) !== false) {
+        echo 'ok';
+    } else {
+        echo 'mysqli_query error';
+    }
+}
+
+$db -> close();
+
+
+
+// first approach
+// function checkboxFunc ($check){
+//     if ($check == 'on') {
+//         return 'да';
 //     }
+//     return 'нет';
+// };
+
+// second approach
+// function checkboxFunc($check){
+//     return ($check == 'on')?'да':'нет';
 // }
 
 
@@ -76,12 +91,11 @@ if (!$db -> real_connect($cfg['hostname'], $cfg['username'],$cfg['password'], $c
 
 
 // second approach
-if ($db -> query($sql) !== false) {
-    echo 'ok';
-} else {
-    echo 'mysqli_query error';
-}
+// if ($db -> query($sql) !== false) {
+//     echo 'ok';
+// } else {
+//     echo 'mysqli_query error';
+// }
 
-$db -> close();
  
 

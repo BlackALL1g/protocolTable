@@ -8,14 +8,15 @@ $db -> real_connect($cfg['hostname'], $cfg['username'], $cfg['password'], $cfg['
 if ($db -> connect_errno)
     die('Query error: ' . $db -> connect_error);
 
+$result = $db->query('SELECT * FROM PROTOCOL_TABLE ORDER BY id ASC');
 
-$res = $db->query('SELECT * FROM PROTOCOL_TABLE ORDER BY id ASC');
-
-if (!$res) {
+if (!$result) {
     die('Query error: ' . $db->error);
 }
 
-$data = $res->fetch_all(MYSQLI_ASSOC);
+$result = $result -> fetch_all();
 
-header('Content-Type: application/json');
-echo json_encode($data);
+echo json_encode($result);
+
+$db -> close();
+?>

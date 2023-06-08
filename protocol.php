@@ -25,8 +25,8 @@ if ($db -> real_connect('localhost','root','','employees')):
 
 <div class="protocolTitle">Таблица с данными</div>
 
-<table class="protocolTable">
-
+<table class="protocolTable" id="protocolTable">
+    <thead>
     <tr class="dbFacade">
         <th>№ п\п</th>
         <th>Номер протокола</th>
@@ -34,8 +34,8 @@ if ($db -> real_connect('localhost','root','','employees')):
         <th>Ответственный (ФИО)</th>
         <th>Соответствие («да», «нет»)</th>
     </tr>
-    
-    <!-- <div class="wrapper"> -->
+    </thead>
+    <tbody>
         <?php 
         foreach ($arr as $key => list($id, $number, $date, $text, $checkbox)):
         ?>
@@ -52,9 +52,7 @@ if ($db -> real_connect('localhost','root','','employees')):
         endforeach;
         endif;
         ?>
-
-    <!-- </div> -->
-
+    </tbody>
 
 </table>
 

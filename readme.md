@@ -1,5 +1,9 @@
 Task:
 
+(all paragraphs completed)
+
++ Async update added
+
 1. Создайте БД
 2. Создайте таблицу в БД под названием PROTOCOL_TABLE
 3. Добавьте в нее столбцы:

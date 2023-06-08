@@ -1,7 +1,31 @@
-
 const form = document.getElementById('addForm');
-const table = document.querySelector('.protocolTable tbody');
-const wrapper = document.querySelector('.wrapper tbody');
+
+
+function updateTable() {
+  fetch('./api/getData.php')
+    .then(response => response.json())
+    .then(data => {
+      // Get the <tbody> element that contains the table rows
+      const tableBody = document.querySelector('tbody');
+
+      tableBody.innerHTML = '';
+      // Loop through the data and create a new row for each item
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item[0]}</td>
+          <td>${item[1]}</td>
+          <td>${item[2]}</td>
+          <td>${item[3]}</td>
+          <td>${item[4]}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(error => {
+      console.log('Error fetching data:', error);
+    });
+}
 
 form.onsubmit = (ev) => {
     ev.preventDefault();
@@ -29,7 +53,8 @@ form.onsubmit = (ev) => {
         } else {
             console.log("submit success", json);
             alert('Готово!!! Данные успешно добавлены!');
-            location.reload();
+            // location.reload();
+            updateTable();
             window.location.href = '#dbContainer';
         }
 
@@ -38,23 +63,9 @@ form.onsubmit = (ev) => {
         console.log('submit failure', error);
         alert('Ошибка! Данные не добавлены!');
     });
+
+    
 };
-
-        // console.log("submit success", json);
-        // alert('Готово!!! Данные успешно добавлены!');
-        // location.reload();
-        // window.location.href = '#dbContainer';
-        
-        // if (condition) {
-        //     console.log("submit success", json);
-        //     alert('Готово!!! Данные успешно добавлены!');
-        //     location.reload();
-        //     window.location.href = '#dbContainer';
-        // } else {
-        //     console.log("the number is already existed in the table");
-        //     alert('Не добавлено ! Протокол с данным номером уже существует')
-        // }
-
 
 
             // // Fetch updated data from server and update table
